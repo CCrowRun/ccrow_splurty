@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   </head>
 
   <body>
@@ -23,12 +24,13 @@
           </div>
         <% end %>
       </div>   
-      <div class="col-4 slogan">
+      <div class="col col-sm-4 hidden-xs-down slogan">
         Staying alive  and genre aware since 2019
       </div>
-      <div class="col-5 links">
+      <div class="col-10 offset-1 offset-sm-0 col-sm-5 links">
         <!-- Button trigger modal -->
         <%= link_to 'Contribute', '#', data: {toggle: 'modal', target: '#myModal'} %>
+        &nbsp;&nbsp;
         <%= link_to 'About', about_path %>
       </div>
     </header>
@@ -73,10 +75,10 @@
     <div class="footer">
       <div class="container">
         <div class="row">
-          <div class="col-6">
+          <div class="col-12 col-sm-6">
               <%= link_to "But wait, there's more!", root_path, class: "next-quote" %>
           </div>
-          <div class="col-6 footer-blurb">
+          <div class="col-12 col-sm-6 footer-blurb">
             Carefully collected by <a href="https://github.com/CCrowRun">Carrie Crow</a><br />
             Want to build your own Splurty Web App - <a href="https://online.bootcampspot.com">Learn how to code here</a>
           </div>
