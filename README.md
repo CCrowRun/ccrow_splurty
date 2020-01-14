@@ -25,12 +25,11 @@ Navigate to the production location of [Splurty](https://splurty-carrie-crow.her
 Splurty uses SimpleForm gem to save entered quotes to a PostGreSQL database. The quotes controller determines a value at random to present on the initial home page.
 
 ### Application Specs
-Nomster is a Ruby on Rails application, with a database is managed by Postgres
+Splurty is a Ruby on Rails application, with a database is managed by PostgreSQL
 * Rails v. 5.2.3
 * Ruby v. 2.5.3
 
 ### Integrations Used
-
-The following gems support Flixter's functionality:
+The following gems support Splurty's functionality:
 * Simple Form gem, for managing user input
 * Bootstrap, for page layout
