@@ -123,10 +123,8 @@ GEM
     pg (1.1.4)
     popper_js (1.11.1)
     public_suffix (3.1.1)
- dependabot/bundler/puma-3.12.2
     puma (3.12.2)
     rack (2.0.8)
- master
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.3)
