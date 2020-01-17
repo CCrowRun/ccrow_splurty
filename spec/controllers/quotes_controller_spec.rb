@@ -13,6 +13,12 @@ RSpec.describe QuotesController, type: :controller do
   end
   describe "quotes#create" do
     let(:quote) {FactoryBot.create :quote}
+    it "should load the form for submission" do
+      post :create, params: { quote: { author: quote.author, saying: quote.saying } }
+
+      expect(response).to redirect_to root_path
+      expect(flash[:error]).not_to be_present
+    end
     it "should create a quote when all fields are entered" do
       post :create, params: { quote: { author: quote.author, saying: quote.saying } }
 
@@ -33,13 +39,6 @@ RSpec.describe QuotesController, type: :controller do
       expect(response).to redirect_to root_path
       expect(flash[:error]).to be_present
     end
-    #Loads the form
-
-    #Submits the form
-
-    #Can't submit form with invalid data
-
-    #Can't submit a blank form
   end
   describe "quotes#about" do
    it "loads the about page" do
