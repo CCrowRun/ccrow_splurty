@@ -17,11 +17,22 @@ RSpec.describe QuotesController, type: :controller do
       post :create, params: { quote: { author: quote.author, saying: quote.saying } }
 
       expect(response).to redirect_to root_path
+      expect(flash[:error]).not_to be_present
     end
 
-    it "should not create a quote if author is missing"
+    it "should not create a quote if author is missing" do
+      post :create, params: { quote: { saying: quote.saying } }
 
-    it "should not create a quote if saying is missing"
+      expect(response).to redirect_to root_path
+      expect(flash[:error]).to be_present
+    end
+
+    it "should not create a quote if saying is missing" do
+      post :create, params: { quote: { author: quote.author } }
+
+      expect(response).to redirect_to root_path
+      expect(flash[:error]).to be_present
+    end
     #Loads the form
 
     #Submits the form
