@@ -12,6 +12,16 @@ RSpec.describe QuotesController, type: :controller do
     #Ensure item is random
   end
   describe "quotes#create" do
+    let(:quote) {FactoryBot.create :quote}
+    it "should create a quote when all fields are entered" do
+      post :create, params: { quote: { author: quote.author, saying: quote.saying } }
+
+      expect(response).to redirect_to root_path
+    end
+
+    it "should not create a quote if author is missing"
+
+    it "should not create a quote if saying is missing"
     #Loads the form
 
     #Submits the form
