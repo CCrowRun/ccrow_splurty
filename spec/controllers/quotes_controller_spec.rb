@@ -12,13 +12,33 @@ RSpec.describe QuotesController, type: :controller do
     #Ensure item is random
   end
   describe "quotes#create" do
-    #Loads the form
+    let(:quote) {FactoryBot.create :quote}
+    it "should load the form for submission" do
+      post :create, params: { quote: { author: quote.author, saying: quote.saying } }
 
-    #Submits the form
+      expect(response).to redirect_to root_path
+      expect(flash[:error]).not_to be_present
+    end
+    it "should create a quote when all fields are entered" do
+      post :create, params: { quote: { author: quote.author, saying: quote.saying } }
 
-    #Can't submit form with invalid data
+      expect(response).to redirect_to root_path
+      expect(flash[:error]).not_to be_present
+    end
 
-    #Can't submit a blank form
+    it "should not create a quote if author is missing" do
+      post :create, params: { quote: { saying: quote.saying } }
+
+      expect(response).to redirect_to root_path
+      expect(flash[:error]).to be_present
+    end
+
+    it "should not create a quote if saying is missing" do
+      post :create, params: { quote: { author: quote.author } }
+
+      expect(response).to redirect_to root_path
+      expect(flash[:error]).to be_present
+    end
   end
   describe "quotes#about" do
    it "loads the about page" do
